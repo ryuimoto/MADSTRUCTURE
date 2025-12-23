@@ -41,33 +41,19 @@
         background: #8b0000;
         padding: 0;
         text-align: center;
-        border-top: 5px solid #ff0000;
-        border-bottom: 5px solid #ff0000;
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
       }
       .countdown-inner {
-        background: repeating-linear-gradient(
-          -45deg,
-          #ff0000,
-          #ff0000 10px,
-          #8b0000 10px,
-          #8b0000 20px
-        );
+        background: #8b0000;
         padding: 5px;
-        animation: pulse-bg 2s infinite;
       }
       .countdown-timer {
-        background: linear-gradient(135deg, #cc0000 0%, #8b0000 100%);
+        background: #8b0000;
         padding: 8px 30px;
         text-align: center;
-        border: 3px solid #ff0000;
-        box-shadow:
-          0 0 30px rgba(255, 0, 0, 0.9),
-          inset 0 0 20px rgba(255, 0, 0, 0.3);
       }
       .countdown-text {
         color: #ffffff;
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 900;
         margin: 0 auto 6px auto;
         letter-spacing: 2px;
@@ -79,7 +65,6 @@
           0 0 20px #ff0000,
           2px 2px 0 #000,
           4px 4px 0 #000;
-        animation: blink-text 1s infinite;
         text-transform: uppercase;
       }
       .countdown-numbers {
@@ -191,16 +176,11 @@
         20%, 40%, 60%, 80% { transform: translateX(2px); }
       }
       @media (max-width: 768px) {
-        #countdown-banner {
-          border-top: 4px solid #ff0000;
-          border-bottom: 4px solid #ff0000;
-        }
         .countdown-inner {
           padding: 4px;
         }
         .countdown-timer {
           padding: 6px 15px;
-          border: 3px solid #ff0000;
         }
         .countdown-text {
           font-size: 14px;
@@ -465,12 +445,11 @@
     </div>
 
     <div id="price">
-      <img src="images/PC_price01.png" class="img-pc" alt="">
-      <img src="images/SP_price01.png" class="img-sp" alt="">
-
+      <img id="price-img-pc" src="images/PC_price01.png" class="img-pc" alt="">
+      <img id="price-img-sp" src="images/SP_price01.png" class="img-sp" alt="">
       <div class="scrollable-box">
         <div class="scrollable-text">
-          私は、本商品が「恋愛コンテンツ会員サイトの閲覧権利（¥49,800）」であり、情報提供を目的としたデジタル商品であることを理解しています。また、以下すべての内容に同意したうえで購入します。<br>
+          私は、本商品が「恋愛コンテンツ会員サイトの閲覧権利（<span class="price-text">¥49,800</span>）」であり、情報提供を目的としたデジタル商品であることを理解しています。また、以下すべての内容に同意したうえで購入します。<br>
           本ページでは、弊社が提供する恋愛系コンテンツに関連して収集される個人情報の取り扱い方針や、購入時の注意点についてご案内しております。<br>
           弊社は、お客様のプライバシーと安心・安全なコンテンツ利用を最優先に運営しております。<br>
           必ず本規約をご確認の上、内容に同意いただける場合のみチェックボックスにチェックを入れ、決済方法へお進みください。弊社の恋愛コンテンツをご購入いただいた場合、または個人情報をご登録いただいた場合には、本規約およびプライバシーポリシーに同意いただいたものとみなします。内容をよくお読みになり、十分にご理解ください。<br>
@@ -497,7 +476,7 @@
         <label class="my-checkbox">
           <input type="checkbox">
           <span class="checkmark"></span>
-          私は、本商品が「恋愛コンテンツ会員サイトの閲覧権利（¥49,800）」であり、情報提供を目的としたデジタル商品であることを理解しています。<br>また、以下すべての内容に同意したうえで購入します。
+          私は、本商品が「恋愛コンテンツ会員サイトの閲覧権利（<span class="price-text">¥49,800</span>）」であり、情報提供を目的としたデジタル商品であることを理解しています。<br>また、以下すべての内容に同意したうえで購入します。
         </label>
 
         <div class="button">
@@ -505,6 +484,22 @@
           <a onclick="return gtag_report_conversion('');" href="https://docs.google.com/forms/d/e/1FAIpQLSdgPxzOyUmUjEjoW6RzN8gUSrcvaxKDjw4A6wAN2eIjFHxEAQ/viewform"><img src="images/btn_bank.png" class="btn00" alt=""></a>
         </div>
       </div>
+      <script>
+        (function() {
+          // 2025年12月29日以降は価格画像と価格テキストを差し替え
+          const switchDate = new Date('2025-12-29T00:00:00');
+          const now = new Date(); // テスト時はここを new Date('2025-12-30T00:00:00') に変更
+          if (now >= switchDate) {
+            // 価格画像を差し替え
+            document.getElementById('price-img-pc').src = 'images/SP_price02.png';
+            document.getElementById('price-img-sp').src = 'images/SP_price02.png';
+            // 価格テキストを差し替え
+            document.querySelectorAll('.price-text').forEach(function(el) {
+              el.textContent = '¥110,000';
+            });
+          }
+        })();
+      </script>
     </div>
 
     <img src="images/PC_end.png" class="img-pc" alt="">
