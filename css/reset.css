@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,th,td { 
+	margin: 0;
+	padding: 0;
+}
+
+address,caption,em,strong,th,var,h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+}
+
+fieldset,img {
+	border:none;
+	border-image:none;
+}
+
+caption,th {
+	text-align: left;
+}
+
+ol,ul {
+	list-style:none;
+}
+
+option {
+	padding-right: 0.5em;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+dt {
+    background:#DCF1FF;
+	margin: 10px 5px;
+	padding: 5px 0px;
+}
+.clear {clear: both;}

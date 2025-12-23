@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="ja">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>-女性攻略の設計図-MAD STRUCTURE</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+  <script src="css/slide1.js"></script>
+  <script src="css/menu.js"></script>
+</head>
+<body>
+  <header>
+    <!-- カウントダウンタイマー -->
+    <div id="countdown-banner">
+      <div class="countdown-inner">
+        <div class="countdown-timer">
+          <p class="countdown-text">⚠ 【期間限定】特別価格終了まで ⚠</p>
+          <div class="countdown-numbers">
+            <div class="countdown-time-row">
+              <span id="days" class="countdown-number-large">00</span>
+              <span class="countdown-label">日</span>
+              <span id="hours" class="countdown-number-large">00</span>
+              <span class="countdown-label">時間</span>
+              <span id="minutes">00</span>
+              <span class="countdown-label">分</span>
+              <span id="seconds">00</span>
+              <span class="countdown-label">秒</span>
+            </div>
+          </div>
+          <p class="countdown-warning">⚠ この価格で手に入るのは今だけ！ ⚠</p>
+        </div>
+      </div>
+    </div>
+    <style>
+      #countdown-banner {
+        background: #8b0000;
+        padding: 0;
+        text-align: center;
+        border-top: 8px solid #ff0000;
+        border-bottom: 8px solid #ff0000;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+      }
+      .countdown-inner {
+        background: repeating-linear-gradient(
+          -45deg,
+          #ff0000,
+          #ff0000 10px,
+          #8b0000 10px,
+          #8b0000 20px
+        );
+        padding: 15px;
+        animation: pulse-bg 2s infinite;
+      }
+      .countdown-timer {
+        background: linear-gradient(135deg, #cc0000 0%, #8b0000 100%);
+        padding: 25px 30px;
+        text-align: center;
+        border: 6px solid #ff0000;
+        box-shadow: 
+          0 0 30px rgba(255, 0, 0, 0.9),
+          inset 0 0 20px rgba(255, 0, 0, 0.3);
+        animation: shake 0.5s infinite;
+      }
+      .countdown-text {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 900;
+        margin: 0 auto 20px auto;
+        letter-spacing: 3px;
+        text-align: center;
+        display: block;
+        width: 100%;
+        text-shadow: 
+          0 0 10px #ff0000,
+          0 0 20px #ff0000,
+          2px 2px 0 #000,
+          4px 4px 0 #000;
+        animation: blink-text 1s infinite;
+        text-transform: uppercase;
+      }
+      .countdown-numbers {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px 30px;
+        border: 3px solid #ff0000;
+        border-radius: 8px;
+        box-shadow: 
+          0 0 15px rgba(255, 0, 0, 0.8),
+          inset 0 0 10px rgba(255, 0, 0, 0.2);
+      }
+      .countdown-time-row {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .countdown-time-row > span:not(.countdown-label) {
+        color: #ffff00;
+        font-size: 40px;
+        font-weight: 900;
+        line-height: 1;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        text-shadow:
+          0 0 10px #ff0000,
+          0 0 20px #ff0000,
+          3px 3px 0 #000,
+          5px 5px 0 #000;
+        display: inline-block;
+      }
+      .countdown-time-row .countdown-number-large {
+        font-size: 90px !important;
+        animation: pulse-number 1s infinite;
+      }
+      .countdown-time-row .countdown-label {
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 700;
+        text-shadow: 
+          0 0 5px #ff0000,
+          1px 1px 0 #000;
+        display: inline-block;
+        margin: 0 5px;
+      }
+      .countdown-warning {
+        color: #ffff00;
+        font-size: 22px;
+        font-weight: 900;
+        margin: 20px auto 0 auto;
+        letter-spacing: 2px;
+        text-align: center;
+        display: block;
+        width: 100%;
+        text-shadow: 
+          0 0 10px #ff0000,
+          0 0 20px #ff0000,
+          2px 2px 0 #000,
+          4px 4px 0 #000;
+        animation: blink-warning 0.8s infinite;
+        text-transform: uppercase;
+      }
+      @keyframes blink-text {
+        0%, 100% { 
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% { 
+          opacity: 0.7;
+          transform: scale(1.05);
+        }
+      }
+      @keyframes blink-warning {
+        0%, 100% { 
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% { 
+          opacity: 0.5;
+          transform: scale(1.1);
+        }
+      }
+      @keyframes pulse-number {
+        0%, 100% { 
+          transform: scale(1);
+          filter: brightness(1);
+        }
+        50% { 
+          transform: scale(1.1);
+          filter: brightness(1.5);
+        }
+      }
+      @keyframes pulse-bg {
+        0%, 100% { 
+          opacity: 1;
+        }
+        50% { 
+          opacity: 0.9;
+        }
+      }
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+        20%, 40%, 60%, 80% { transform: translateX(2px); }
+      }
+      @media (max-width: 768px) {
+        #countdown-banner {
+          border-top: 6px solid #ff0000;
+          border-bottom: 6px solid #ff0000;
+        }
+        .countdown-inner { 
+          padding: 8px; 
+        }
+        .countdown-timer { 
+          padding: 15px 8px; 
+          border: 4px solid #ff0000;
+        }
+        .countdown-text { 
+          font-size: 13px; 
+          letter-spacing: 0.5px; 
+          margin: 0 auto 12px auto;
+          padding: 0 8px;
+          line-height: 1.3;
+        }
+        .countdown-numbers { 
+          gap: 6px; 
+          padding: 10px 5px;
+          margin: 0 auto;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .countdown-time-row {
+          gap: 2px;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: baseline;
+          width: 100%;
+        }
+        .countdown-time-row > span:not(.countdown-label) {
+          font-size: 20px;
+          flex-shrink: 0;
+        }
+        .countdown-time-row .countdown-number-large {
+          font-size: 40px !important;
+        }
+        .countdown-time-row .countdown-label { 
+          font-size: 11px; 
+          margin: 0 1px;
+          flex-shrink: 0;
+          white-space: nowrap;
+        }
+        .countdown-warning { 
+          font-size: 12px; 
+          margin: 12px auto 0 auto;
+          letter-spacing: 0.3px;
+          padding: 0 8px;
+          line-height: 1.3;
+        }
+      }
+      @media (max-width: 430px) {
+        .countdown-text { 
+          font-size: 12px; 
+          letter-spacing: 0.3px; 
+          padding: 0 5px;
+        }
+        .countdown-numbers { 
+          padding: 8px 3px;
+        }
+        .countdown-time-row {
+          gap: 1px;
+        }
+        .countdown-time-row > span:not(.countdown-label) {
+          font-size: 18px;
+        }
+        .countdown-time-row .countdown-number-large {
+          font-size: 34px !important;
+        }
+        .countdown-time-row .countdown-label { 
+          font-size: 10px; 
+          margin: 0;
+        }
+        .countdown-warning { 
+          font-size: 11px; 
+          padding: 0 5px;
+        }
+      }
+    </style>
+    <script>
+      (function() {
+        // 終了日を設定（3日後に設定）
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 3);
+        endDate.setHours(23, 59, 59, 0);
+
+        function updateCountdown() {
+          const now = new Date();
+          const diff = endDate - now;
+
+          if (diff <= 0) {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+          }
+
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.getElementById('days').textContent = String(days).padStart(2, '0');
+          document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+          document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+          document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      })();
+    </script>
+
+    <div>
+      <img src="images/PC_top.png" class="img-pc" alt="">
+      <img src="images/SP_top.png" class="img-sp" alt="">
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <img src="images/PC_cont01.png" class="img-pc" alt="">
+    <img src="images/SP_cont01.png" class="img-sp" alt="">
+
+    <div class="youtube" style="max-width: 1200px; margin: 0 auto;">
+      <div style="position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1118022027?h=5c0ce3a272&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="動画（会員サイト）"
+        ></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+
+    <div id="about">
+      <img src="images/PC_cont02.png" class="img-pc" alt="">
+      <img src="images/SP_cont02.png" class="img-sp" alt="">
+    </div>
+
+    <img src="images/PC_cont03.png" class="img-pc" alt="">
+    <img src="images/SP_cont03.png" class="img-sp" alt="">
+    <img src="images/PC_cont04.png" class="img-pc" alt="">
+    <img src="images/SP_cont04.png" class="img-sp" alt="">
+    <img src="images/SP_cont05.png" class="img-sp" alt="">
+    <img src="images/SP_cont06.png" class="img-sp" alt="">
+    <img src="images/PC_cont05.png" class="img-pc" alt="">
+    <img src="images/SP_cont07.png" class="img-sp" alt="">
+    <img src="images/SP_cont08.png" class="img-sp" alt="">
+
+    <div id="voice">
+      <img src="images/PC_voicetop.png" class="img-pc" alt="">
+      <img src="images/SP_voicetop.png" class="img-sp" alt="">
+      <div class="cont-three">
+        <div class="wrap-three position-relative">
+          <div class="items-three show" data-item-three-number="0"><img class="w-100" src="images/PC_Voice04.png" alt=""></div>
+          <div class="items-three" data-item-three-number="1"><img class="w-100" src="images/PC_Voice05.png" alt=""></div>
+          <div class="items-three" data-item-three-number="2"><img class="w-100" src="images/PC_Voice06.png" alt=""></div>
+          <div class="items-three" data-item-three-number="2"><img class="w-100" src="images/PC_Voice07.png" alt=""></div>
+          <div class="items-three" data-item-three-number="2"><img class="w-100" src="images/PC_Voice08.png" alt=""></div>
+        </div>
+      </div>
+      <div class="button-cont-three">
+        <div class="button-left-three">&lt;</div>
+        <div class="button-right-three">&gt;</div>
+        <br><br>
+      </div>
+    </div>
+
+    <img src="images/SP_cont08-04.png" class="img-sp" alt="">
+    <img src="images/PC_cont06.png" class="img-pc" alt="">
+
+    <div id="tokuten">
+      <img src="images/PC_tokuten01.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten01.png" class="img-sp" alt="">
+
+      <!-- Vimeo 埋め込み -->
+      <div style="max-width: 1200px; margin: 0 auto; position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1117064931?h=b6d54a5064&title=0&byline=0&portrait=0&badge=0"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowfullscreen
+          loading="lazy"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="STEP1：外見改革"
+        ></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+
+      <img src="images/PC_tokuten02.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten02.png" class="img-sp" alt="">
+
+      <div style="max-width: 1200px; margin: 0 auto; position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1117064983?h=f3a447934d&title=0&byline=0&portrait=0&badge=0"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowfullscreen
+          loading="lazy"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="STEP2：マッチングアプリ攻略"
+        ></iframe>
+      </div>
+
+      <img src="images/PC_tokuten03.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten03.png" class="img-sp" alt="">
+
+      <div style="max-width: 1200px; margin: 0 auto; position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1117065049?h=d1afb6cef0&title=0&byline=0&portrait=0&badge=0"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowfullscreen
+          loading="lazy"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="STEP3：デート攻略"
+        ></iframe>
+      </div>
+
+      <img src="images/PC_tokuten04.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten04.png" class="img-sp" alt="">
+
+      <div style="max-width: 1200px; margin: 0 auto; position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1117065090?h=edf2bd6bec&title=0&byline=0&portrait=0&badge=0"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowfullscreen
+          loading="lazy"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="夜職美女攻略"
+        ></iframe>
+      </div>
+
+      <img src="images/PC_tokuten05.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten05.png" class="img-sp" alt="">
+
+      <div style="max-width: 1200px; margin: 0 auto; position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1117065190?h=a4381a00ff&title=0&byline=0&portrait=0&badge=0"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowfullscreen
+          loading="lazy"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="実録音声"
+        ></iframe>
+      </div>
+
+      <img src="images/PC_tokuten06.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten06.png" class="img-sp" alt="">
+
+      <div style="max-width: 1200px; margin: 0 auto; position: relative; padding-top: 56.25%;">
+        <iframe
+          src="https://player.vimeo.com/video/1117065247?h=82bbf6ff3b&title=0&byline=0&portrait=0&badge=0"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allowfullscreen
+          loading="lazy"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          title="特別講義＆口説きノート集"
+        ></iframe>
+      </div>
+
+      <img src="images/PC_tokuten07.png" class="img-pc" alt="">
+      <img src="images/SP_tokuten07.png" class="img-sp" alt="">
+    </div>
+
+    <div id="step">
+      <img src="images/PC_step.png" class="img-pc" alt="">
+      <img src="images/SP_step01.png" class="img-sp" alt="">
+      <img src="images/SP_step02.png" class="img-sp" alt="">
+      <img src="images/SP_step03.png" class="img-sp" alt="">
+    </div>
+
+    <div id="price">
+      <img src="images/PC_price01.png" class="img-pc" alt="">
+      <img src="images/SP_price01.png" class="img-sp" alt="">
+
+      <div class="scrollable-box">
+        <div class="scrollable-text">
+          私は、本商品が「恋愛コンテンツ会員サイトの閲覧権利（¥49,800）」であり、情報提供を目的としたデジタル商品であることを理解しています。また、以下すべての内容に同意したうえで購入します。<br>
+          本ページでは、弊社が提供する恋愛系コンテンツに関連して収集される個人情報の取り扱い方針や、購入時の注意点についてご案内しております。<br>
+          弊社は、お客様のプライバシーと安心・安全なコンテンツ利用を最優先に運営しております。<br>
+          必ず本規約をご確認の上、内容に同意いただける場合のみチェックボックスにチェックを入れ、決済方法へお進みください。弊社の恋愛コンテンツをご購入いただいた場合、または個人情報をご登録いただいた場合には、本規約およびプライバシーポリシーに同意いただいたものとみなします。内容をよくお読みになり、十分にご理解ください。<br>
+          【個人情報の定義と保護について】 お客様の個人情報（氏名、メールアドレス、電話番号、住所、SNSアカウントなど）は、厳重に管理し、適切に保管いたします。これらは、特定の個人を識別できる情報を指し、本ポリシーではこれに準じた情報全般を含みます。<br>
+          【個人情報の収集について】 恋愛コンテンツの提供・運営上、必要最低限の個人情報を収集する場合があります。情報の収集は、適正な手段により、本人の同意を得たうえで行います。情報提供の可否はお客様ご自身の判断に委ねられますが、必要情報をご提供いただけない場合は、一部のサービスがご利用いただけないことがあります。<br>
+          【個人情報の利用目的】 お客様の個人情報は、以下の目的でのみ使用します。<br>
+          ご購入された恋愛コンテンツの提供および関連サービスの案内<br>
+          サポート・アフターフォローのご連絡<br>
+          各種ご案内やキャンペーン情報の送付（希望者のみ） 法令で定める場合を除き、あらかじめ明示した目的の範囲を超えて利用することはありません。<br>
+          【第三者提供・共同利用】 以下の場合を除き、事前にご本人の同意を得ることなく第三者に提供することはありません。<br>
+          外部決済サービス等、業務委託先と情報を共有する場合<br>
+          法令に基づき開示が必要な場合<br>
+          お客様が外部セミナーや提携企画等に申し込んだ場合で、提供が必要な場合 これらの場合でも、弊社は委託先や共同利用先に対し、適切な監督・管理を行います。<br>
+          【登録情報の照会・訂正等】 ご自身の個人情報の照会・修正・削除をご希望の場合は、本人確認の上、速やかに対応いたします。<br>
+          【プライバシーポリシーの変更】 本ポリシーは、必要に応じて改定されることがあります。重要な変更があった場合は、ウェブサイト上にて告知いたします。変更に同意できない場合は、当社にその旨をご連絡いただき、登録情報の削除手続きを行ってください。<br>
+          【返品・キャンセルについて】 本恋愛コンテンツはデジタル商品の特性上、購入後のキャンセル・返金・クーリングオフは一切お受けしておりません。予めご了承ください。<br>
+          【禁止事項】 以下の行為は固く禁じます。<br>
+          恋愛コンテンツの無断複製・配布・転載・販売<br>
+          コンテンツ内容の改ざん・抜粋・転用<br>
+          コンテンツの名称や内容を利用した二次的商用展開 発覚した場合、法的措置を講じる場合があります。<br>
+          【表現および効果に関する免責事項】 本コンテンツに含まれる表現・ノウハウ・アドバイス等は、効果を保証するものではありません。恋愛における成果には個人差があり、あくまで参考としてご活用ください。<br>
+          【購入に関するご確認事項】 購入前には必ず、販売ページの説明内容をご確認の上、納得いただいた方のみご購入ください。ご購入をもって、全内容に同意いただいたものとみなします。
+        </div>
+        <label class="my-checkbox">
+          <input type="checkbox">
+          <span class="checkmark"></span>
+          私は、本商品が「恋愛コンテンツ会員サイトの閲覧権利（¥49,800）」であり、情報提供を目的としたデジタル商品であることを理解しています。<br>また、以下すべての内容に同意したうえで購入します。
+        </label>
+
+        <div class="button">
+          <a onclick="return gtag_report_conversion('');" href="https://liff.line.me/2007755162-DBQxqJJb?product_id=17722&type=product-detail&ts=1761204553"><img src="images/btn_card.png" class="btn00" alt=""></a>
+          <a onclick="return gtag_report_conversion('');" href="https://docs.google.com/forms/d/e/1FAIpQLSdgPxzOyUmUjEjoW6RzN8gUSrcvaxKDjw4A6wAN2eIjFHxEAQ/viewform"><img src="images/btn_bank.png" class="btn00" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <img src="images/PC_end.png" class="img-pc" alt="">
+    <img src="images/SP_end.png" class="img-sp" alt="">
+    <a onclick="return gtag_report_conversion('');" href="https://bit.ly/3JSGw05"><img src="images/LINEbtn.png" class="btn00" alt=""></a>
+
+    <div id="QA">
+      <img src="images/PC_QA.png" class="img-pc" alt="">
+      <img src="images/SP_QA.png" class="img-sp" alt="">
+
+      <div class="cp_qa">
+        <div class="cp_actab">
+          <input id="cp_tabfour011" type="checkbox" name="tabs">
+          <label for="cp_tabfour011">
+            <img src="images/Q01.png" class="img-pc" alt="">
+            <img src="images/sp/Q01.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A01.png" class="img-pc" alt=""><img src="images/sp/A01.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour012" type="checkbox" name="tabs">
+          <label for="cp_tabfour012">
+            <img src="images/Q02.png" class="img-pc" alt="">
+            <img src="images/sp/Q02.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A02.png" class="img-pc" alt=""><img src="images/sp/A02.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour013" type="checkbox" name="tabs">
+          <label for="cp_tabfour013">
+            <img src="images/Q03.png" class="img-pc" alt="">
+            <img src="images/sp/Q03.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A03.png" class="img-pc" alt=""><img src="images/sp/A03.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour014" type="checkbox" name="tabs">
+          <label for="cp_tabfour014">
+            <img src="images/Q04.png" class="img-pc" alt="">
+            <img src="images/sp/Q04.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A04.png" class="img-pc" alt=""><img src="images/sp/A04.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour015" type="checkbox" name="tabs">
+          <label for="cp_tabfour015">
+            <img src="images/Q05.png" class="img-pc" alt="">
+            <img src="images/sp/Q05.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A05.png" class="img-pc" alt=""><img src="images/sp/A05.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour016" type="checkbox" name="tabs">
+          <label for="cp_tabfour016">
+            <img src="images/Q06.png" class="img-pc" alt="">
+            <img src="images/sp/Q06.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A06.png" class="img-pc" alt=""><img src="images/sp/A06.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour017" type="checkbox" name="tabs">
+          <label for="cp_tabfour017">
+            <img src="images/Q07.png" class="img-pc" alt="">
+            <img src="images/sp/Q07.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A07.png" class="img-pc" alt=""><img src="images/sp/A07.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour018" type="checkbox" name="tabs">
+          <label for="cp_tabfour018">
+            <img src="images/Q08.png" class="img-pc" alt="">
+            <img src="images/sp/Q08.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A08.png" class="img-pc" alt=""><img src="images/sp/A08.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+        <div class="cp_actab">
+          <input id="cp_tabfour019" type="checkbox" name="tabs">
+          <label for="cp_tabfour019">
+            <img src="images/Q09.png" class="img-pc" alt="">
+            <img src="images/sp/Q09.png" class="img-sp" alt="">
+          </label>
+          <div class="cp_actab-content">
+            <p><img src="images/A09.png" class="img-pc" alt=""><img src="images/sp/A09.png" class="img-sp" alt=""></p>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+    </div>
+
+    <div id="footer">
+      <nav>
+        <ul class="clearfix cnt">
+          <li><a href="">TOP</a></li>
+          <li><a href="images/MADSTRUCTUREtoku.png" target="_blank" rel="noopener">特定商取引法について</a></li>
+          <li><a href="images/privacy.png" target="_blank" rel="noopener">プライバシーポリシー</a></li>
+          <li><a href="https://bit.ly/3JSGw05">LINEで相談</a></li>
+        </ul>
+      </nav>
+      <address class="ts">
+        Copyright&copy; All Rights Reserved.
+      </address>
+    </div>
+
+    <br>
+  </div>
+</body>
+</html>
