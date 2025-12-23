@@ -246,10 +246,8 @@
     </style>
     <script>
       (function() {
-        // 終了日を設定（3日後に設定）
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate() + 3);
-        endDate.setHours(23, 59, 59, 0);
+        // 終了日を設定（2025年12月28日 23:59:59固定）
+        const endDate = new Date('2025-12-28T23:59:59');
 
         function updateCountdown() {
           const now = new Date();
