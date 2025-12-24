@@ -254,10 +254,8 @@
           const diff = endDate - now;
 
           if (diff <= 0) {
-            document.getElementById('days').textContent = '00';
-            document.getElementById('hours').textContent = '00';
-            document.getElementById('minutes').textContent = '00';
-            document.getElementById('seconds').textContent = '00';
+            // タイマーを非表示にする
+            document.getElementById('countdown-banner').style.display = 'none';
             return;
           }
 
