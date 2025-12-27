@@ -476,7 +476,7 @@
         </label>
 
         <div class="button">
-          <a onclick="return gtag_report_conversion('');" href="https://liff.line.me/2007755162-DBQxqJJb?product_id=17722&type=product-detail&ts=1761204553"><img src="images/btn_card.png" class="btn00" alt=""></a>
+          <a id="card-link" onclick="return gtag_report_conversion('');" href="https://liff.line.me/2007755162-DBQxqJJb?product_id=17722&type=product-detail&ts=1761204553"><img src="images/btn_card.png" class="btn00" alt=""></a>
           <a onclick="return gtag_report_conversion('');" href="https://docs.google.com/forms/d/e/1FAIpQLSdgPxzOyUmUjEjoW6RzN8gUSrcvaxKDjw4A6wAN2eIjFHxEAQ/viewform"><img src="images/btn_bank.png" class="btn00" alt=""></a>
         </div>
       </div>
@@ -493,6 +493,12 @@
             document.querySelectorAll('.price-text').forEach(function(el) {
               el.textContent = '¥110,000';
             });
+          }
+
+          // 2026年1月29日以降はカード決済リンクを差し替え
+          const linkSwitchDate = new Date('2026-01-29T00:00:00');
+          if (now >= linkSwitchDate) {
+            document.getElementById('card-link').href = 'https://liff.line.me/2007755162-DBQxqJJb?product_id=18769&type=product-detail&ts=1766728056';
           }
         })();
       </script>
