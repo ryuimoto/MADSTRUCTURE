@@ -288,6 +288,7 @@
     <div class="youtube" style="max-width: 1200px; margin: 0 auto;">
       <div style="position: relative; padding-top: 56.25%;">
         <iframe
+          id="main-video"
           src="https://player.vimeo.com/video/1118022027?h=5c0ce3a272&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -493,6 +494,8 @@
             document.querySelectorAll('.price-text').forEach(function(el) {
               el.textContent = '¥110,000';
             });
+            // メイン動画を差し替え
+            document.getElementById('main-video').src = 'https://player.vimeo.com/video/1149766718?h=b5426c2614&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
           }
 
           // 2026年1月29日以降はカード決済リンクを差し替え
